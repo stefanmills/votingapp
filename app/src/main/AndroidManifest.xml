@@ -41,14 +41,46 @@
 
         <activity
             android:name=".SecretaryPage"
-            android:parentActivityName=".President"></activity>
+            android:parentActivityName=".President">
+
+        </activity>
         <activity
             android:name=".Financial"
-            android:parentActivityName=".SecretaryPage"></activity>
+            android:parentActivityName=".SecretaryPage">
+
+        </activity>
         <activity
             android:name=".WomensCommissioner"
-            android:parentActivityName=".Financial"></activity>
-        <activity android:name=".SelectedVotes"></activity>
+            android:parentActivityName=".Financial">
+        </activity>
+        <activity android:name=".SelectedVotes">
+
+        </activity>
+<activity android:name=".Help"
+    android:parentActivityName=".VotePage">
+
+</activity>
+        <activity android:name=".Logout"
+            android:parentActivityName=".VotePage">
+
+        </activity>
+
+        <activity android:name=".Profile"
+            android:parentActivityName=".VotePage">
+
+        </activity>
+        <activity android:name=".Settings"
+            android:parentActivityName=".VotePage">
+
+        </activity>
+        <activity android:name=".Share"
+            android:parentActivityName=".VotePage">
+
+        </activity>
+
+
+
+
 
 
     </application>
