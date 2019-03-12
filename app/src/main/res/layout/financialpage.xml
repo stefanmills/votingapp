@@ -1,15 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
 
+    android:elevation="10dp"
 
-    <Button
-        android:id="@+id/btFinancial"
-        android:layout_width="160dp"
+    >
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="120dp"
+        android:weightSum="10">
+        <Button
+            android:background="@drawable/cards"
+            android:id="@+id/financial1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
 
-        android:text="Next" />
-</LinearLayout>
+            android:drawableLeft="@drawable/candidate1"
+            android:padding="30dp"
+            android:text="Candidate1"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:background="@drawable/cards"
+            android:id="@+id/financial2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+
+            android:drawableLeft="@drawable/caandidate2"
+            android:padding="30dp"
+            android:text="Candidate 2"
+            android:textStyle="bold"
+            android:layout_below="@id/financial1"
+            />
+    </RelativeLayout>
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:backgroundTint="@android:color/white"
+        android:src="@drawable/ic_navigate_next_black_24dp"
+        android:id="@+id/btFinancial"
+        android:layout_alignParentRight="true" />
+
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+
+    <!--<Button-->
+        <!--android:id="@+id/btFinancial"-->
+        <!--android:layout_width="160dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_margin="120dp"-->
+
+        <!--android:text="Next" />-->
+<!--</LinearLayout>-->

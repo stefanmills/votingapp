@@ -6,26 +6,49 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="50dp"
+    android:paddingTop="10dp"
+
+    android:elevation="10dp"
+    
     >
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recyclerView"/>
-
-<Button
-    android:id="@+id/btn1"
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recyclerView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+<RelativeLayout
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_below="@id/recyclerView"
-    />
-
+    android:weightSum="10">
     <Button
-        android:id="@+id/btn2"
+        android:background="@drawable/cards"
+        android:id="@+id/candidate1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn1"/>
+        android:elevation="10dp"
+
+        android:drawableLeft="@drawable/candidate1"
+        android:padding="30dp"
+        android:text="Candidate1"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:background="@drawable/cards"
+        android:id="@+id/candidate2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+
+        android:drawableLeft="@drawable/caandidate2"
+        android:padding="30dp"
+        android:text="Candidate 2"
+        android:textStyle="bold"
+        android:layout_below="@id/candidate1"
+        />
+</RelativeLayout>
+
     <!--Button
         android:id="@+id/btPresident"
         android:layout_width="160dp"
@@ -45,7 +68,7 @@
         app:backgroundTint="@android:color/white"
         android:src="@drawable/ic_navigate_next_black_24dp"
         android:id="@+id/btPresident"
-        />
+        android:layout_alignParentRight="true" />
 
 
 

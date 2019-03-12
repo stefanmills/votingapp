@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Intent votepage = new Intent(getApplicationContext(), VotePage.class);
             startActivity(votepage);
+            finish();
         }
 
     }

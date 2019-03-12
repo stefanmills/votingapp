@@ -1,5 +1,7 @@
 package com.example.votingapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +12,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -28,20 +31,57 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
         switch (menuItem.getItemId()){
 
             case  R.id.Profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+              Intent profile= new Intent(getApplicationContext(), Profile.class);
+              startActivity(profile);
+              return true;
 
-                break;
+
 
             case  R.id.Settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
+                Intent set= new Intent(VotePage.this, Settings.class);
+                startActivity(set);
+                return true;
 
-                break;
 
                 case  R.id.Share:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ShareFragment()).commit();
+                    Intent share= new Intent(VotePage.this, Share.class);
+                    startActivity(share);
+                    return true;
+            case  R.id.Logout:
+                drawer.closeDrawer(Gravity.START, false);
 
-                break;
+                AlertDialog.Builder builder= new AlertDialog.Builder(VotePage.this);
+                builder.setTitle("Logout");
+                builder.setMessage("Logout this app?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent login= new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(login);
+finish();
+                    }
+                });
 
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                }); AlertDialog alertDialog= builder.create();
+                alertDialog.show();
+
+
+
+
+
+
+
+
+//                Intent lout= new Intent(VotePage.this, Logout.class);
+//                startActivity(lout);
+
+                return true;
 
 
         }
