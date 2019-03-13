@@ -23,7 +23,7 @@
 
             android:drawableLeft="@drawable/candidate1"
             android:padding="30dp"
-            android:text="Candidate1"
+            android:text="WOMAN1"
             android:textStyle="bold"
             />
 
@@ -36,7 +36,7 @@
 
             android:drawableLeft="@drawable/caandidate2"
             android:padding="30dp"
-            android:text="Candidate 2"
+            android:text="WOMAN2"
             android:textStyle="bold"
             android:layout_below="@id/woman1"
             />

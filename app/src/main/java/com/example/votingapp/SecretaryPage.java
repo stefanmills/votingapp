@@ -7,11 +7,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class SecretaryPage extends AppCompatActivity {
     private FloatingActionButton buttonSecretary;
     private Button secet1;
     private Button secet2;
+    private String selectedSecetary;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class SecretaryPage extends AppCompatActivity {
             public void onClick(View v) {
                 secet1.setEnabled(false);
                 secet2.setEnabled(true);
+                selectedSecetary = secet1.getText().toString();
             }
         });
 
@@ -34,8 +37,13 @@ public class SecretaryPage extends AppCompatActivity {
             public void onClick(View v) {
                 secet2.setEnabled(false);
                 secet1.setEnabled(true);
+                selectedSecetary = secet2.getText().toString();
             }
         });
+
+        final String selectedPresident = getIntent().getStringExtra(AppConstants.selectedPresidentString);
+
+        Toast.makeText(this, String.format("{%s}", selectedPresident), Toast.LENGTH_LONG).show();
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Secretary");
@@ -44,6 +52,8 @@ public class SecretaryPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent financial= new Intent(getApplicationContext(), Financial.class);
+                financial.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
+                financial.putExtra(AppConstants.selectedPresidentString, selectedPresident);
                 startActivity(financial);
             }
         });

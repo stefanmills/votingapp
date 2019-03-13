@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class SelectedVotes extends AppCompatActivity {
     private Button buttonEdit;
@@ -24,6 +25,17 @@ public class SelectedVotes extends AppCompatActivity {
                 startActivity(vote);
             }
         });
+
+        String selectedPresident = getIntent().getStringExtra(AppConstants.selectedPresidentString);
+        String selectedFinancial = getIntent().getStringExtra(AppConstants.selectedFinancialString);
+        String selectedWocom = getIntent().getStringExtra(AppConstants.selectedWocomString);
+        String selectedSecretary = getIntent().getStringExtra(AppConstants.selectedSecretaryString);
+
+
+        Toast.makeText(this, String.format("{%s} {%s} {%s} {%s}", selectedFinancial, selectedPresident, selectedSecretary, selectedWocom), Toast.LENGTH_LONG).show();
+
+
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Selected Votes");
 

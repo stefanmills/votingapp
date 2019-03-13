@@ -7,11 +7,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class President extends AppCompatActivity {
     private FloatingActionButton buttonPresident;
     private Button pres1;
     private Button pres2;
+    private String selectedPresident;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,7 @@ public class President extends AppCompatActivity {
           public void onClick(View v) {
               pres1.setEnabled(false);
               pres2.setEnabled(true);
+              selectedPresident = pres1.getText().toString();
           }
       });
 
@@ -35,17 +39,37 @@ public class President extends AppCompatActivity {
             public void onClick(View v) {
                 pres2.setEnabled(false);
                 pres1.setEnabled(true);
+                selectedPresident = pres2.getText().toString();
             }
         });
 
+
+        /**
+         * once you save the data into the shared preferences, you read the value when you load the next page
+         * if you go back to the previous page, check if the selected value stored in the preferences is null or not
+         * if it is not null, then you display it.
+         *
+         * if(!(prefs.getSelectedPresident() == null)) {
+         *     pres1.setEnabled(false);
+         *     pres2.setEnabled(true);
+         *
+         *     selectedPresidentText.setText(prefs.getSelectedPresident());
+         * }
+         */
 
 
 
         buttonPresident.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent secretary= new Intent(getApplicationContext(), SecretaryPage.class);
-                startActivity(secretary);
+                if(selectedPresident == null || selectedPresident.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
+                }else {
+                    Intent secretary= new Intent(getApplicationContext(), SecretaryPage.class);
+                    secretary.putExtra(AppConstants.selectedPresidentString, selectedPresident);
+//                secretary.getStringExtra()
+                    startActivity(secretary);
+                }
             }
         });
         ActionBar actionBar = getSupportActionBar();
@@ -53,5 +77,5 @@ public class President extends AppCompatActivity {
 
 
 
-}
+    }
 }
