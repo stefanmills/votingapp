@@ -48,12 +48,18 @@ public class Financial extends AppCompatActivity {
         buttonFinancial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent women= new Intent(getApplicationContext(), WomensCommissioner.class);
-                women.putExtra(AppConstants.selectedFinancialString, selectedFinancial);
-                women.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
-                women.putExtra(AppConstants.selectedPresidentString, selectedPresident);
+                if (selectedFinancial==null || selectedFinancial.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
+                } else {
 
-                startActivity(women);
+                    Intent women = new Intent(getApplicationContext(), WomensCommissioner.class);
+                    women.putExtra(AppConstants.selectedFinancialString, selectedFinancial);
+                    women.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
+                    women.putExtra(AppConstants.selectedPresidentString, selectedPresident);
+
+                    startActivity(women);
+                }
+
             }
         });
         ActionBar actionBar = getSupportActionBar();

@@ -51,10 +51,15 @@ public class SecretaryPage extends AppCompatActivity {
         buttonSecretary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent financial= new Intent(getApplicationContext(), Financial.class);
-                financial.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
-                financial.putExtra(AppConstants.selectedPresidentString, selectedPresident);
-                startActivity(financial);
+                if (selectedSecetary==null || selectedSecetary.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
+                }else {
+                    Intent financial= new Intent(getApplicationContext(), Financial.class);
+                    financial.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
+                    financial.putExtra(AppConstants.selectedPresidentString, selectedPresident);
+                    startActivity(financial);
+                }
+
             }
         });
 }

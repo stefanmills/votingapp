@@ -46,18 +46,23 @@ public class WomensCommissioner extends AppCompatActivity {
         final String selectedSecetary = getIntent().getStringExtra(AppConstants.selectedSecretaryString);
         final String selectedFinancial = getIntent().getStringExtra(AppConstants.selectedFinancialString);
 
-        Toast.makeText(this, String.format("{%s} {%s} {%s}", selectedFinancial, selectedPresident, selectedSecetary), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, String.format("{%s} {%s} {%s}", selectedPresident, selectedSecetary, selectedFinancial), Toast.LENGTH_SHORT).show();
 
         buttonWomen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent women= new Intent(getApplicationContext(), SelectedVotes.class);
-                women.putExtra(AppConstants.selectedFinancialString, selectedFinancial);
-                women.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
-                women.putExtra(AppConstants.selectedPresidentString, selectedPresident);
-                women.putExtra(AppConstants.selectedWocomString, selectedWomen);
+                if (selectedWomen==null || selectedWomen.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
+                } else {
 
-                startActivity(women);
+                    Intent women = new Intent(getApplicationContext(), SelectedVotes.class);
+                    women.putExtra(AppConstants.selectedFinancialString, selectedFinancial);
+                    women.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
+                    women.putExtra(AppConstants.selectedPresidentString, selectedPresident);
+                    women.putExtra(AppConstants.selectedWocomString, selectedWomen);
+
+                    startActivity(women);
+                }
             }
         });
         ActionBar actionBar = getSupportActionBar();
