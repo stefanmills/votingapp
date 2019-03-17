@@ -6,8 +6,34 @@
     android:padding="5dp"
   >
 
+ <TextView
+     android:layout_width="match_parent"
+     android:layout_height="100dp"
+     android:text="President"
+     android:id="@+id/txtPresident"
+     />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Secertary"
+        android:layout_below="@+id/txtPresident"
+        android:id="@+id/txtSecretary"
+        />
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Financial"
+        android:layout_below="@+id/txtSecretary"
+        android:id="@+id/txtFinancial"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Women's Commissioner"
+        android:layout_below="@+id/txtFinancial"
+        android:id="@+id/txtWomen"
+        />
 
     <LinearLayout
         android:layout_alignParentBottom="true"
