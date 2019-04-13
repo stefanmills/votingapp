@@ -2,5 +2,59 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/namebut"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/candidate1"
+        android:text="Stefan Mills
+  Computer Science"
+        android:textAllCaps="false"
+        android:padding="5dp"
+        />
+    <Button
+        android:id="@+id/accounts"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/accounts"
+        android:text="Accounts
+        Change number, change email"
+        android:textAllCaps="false"
+        android:padding="5dp"
+        android:layout_below="@+id/namebut"
+        />
 
+    <Button
+        android:id="@+id/sethelp"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/ic_help"
+        android:layout_below="@+id/accounts"
+        android:text="Help
+  FAQ,contact us, app info"
+        android:textAllCaps="false"
+        android:padding="5dp"
+        />
+    <Button
+        android:id="@+id/invite"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/friends"
+        android:text="Share with a friend"
+android:layout_below="@+id/sethelp"
+        android:textAllCaps="false"
+        android:padding="5dp"
+        />
+</RelativeLayout>
 </LinearLayout>

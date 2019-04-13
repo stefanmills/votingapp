@@ -47,6 +47,12 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
                     Intent share= new Intent(VotePage.this, Share.class);
                     startActivity(share);
                     return true;
+
+            case  R.id.Help:
+                Intent help= new Intent(getApplicationContext(), Help.class);
+                startActivity(help);
+                return true;
+
             case  R.id.Logout:
                 drawer.closeDrawer(Gravity.START, false);
 

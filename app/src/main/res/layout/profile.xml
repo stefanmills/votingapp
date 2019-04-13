@@ -1,50 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/skyblue"
+    android:background="@color/white"
     android:orientation="vertical"
     >
-    <RelativeLayout
+    
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@drawable/gradientbackground"
-            android:orientation="vertical"
-           >
-            <ImageView
-                android:layout_marginTop="35dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/profile"
-                />
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="User1 User2"
-                android:textStyle="bold"
-                android:textSize="21sp"
-                />
-            
-        </LinearLayout>
-        <Button
-            android:layout_width="400dp"
-            android:layout_height="120dp"
-            android:background="@drawable/cards"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="200dp"
-            android:text="STEFAN MILLS "/>
+        android:layout_height="match_parent"
+       android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:id="@+id/profilepic"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:layout_below="@id/profilepic"
+        android:drawableLeft="@drawable/ic_profile"
+        android:text="Name
+Mills Stefan Ameyaw
+Gender : Male"
+        android:id="@+id/userdetails"
+        android:textAllCaps="false"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/white"
+        android:layout_below="@id/userdetails"
+        android:layout_marginTop="1dp"
+        android:drawableLeft="@drawable/info"
+        android:text="Course
+Computer Science
+Year : 4
+Hall: UNITY"
+        android:id="@+id/hallyear"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:layout_below="@id/hallyear"
+        android:drawableLeft="@drawable/book"
+        android:text="Reference Number
+20392039
+School email :  samills@st.knust.edu.gh
+Other Email: stefanmills8@gmail.com"
+        android:id="@+id/refmail"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:layout_below="@id/refmail"
+        android:drawableLeft="@drawable/phone"
+        android:text="Primary Number: +233 50 765 6652
+KNUST Mobile No.:  +233 50 134 7138 "
+        android:id="@+id/phone"
+        android:textAllCaps="false"/>
 
 
-    </RelativeLayout>
+
+</RelativeLayout>
+    </ScrollView>
 
 
-
-
-</LinearLayout>
+</RelativeLayout>
