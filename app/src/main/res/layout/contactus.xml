@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        android:text="CONTACT US "
+        android:layout_marginTop="120dp"
+        android:textSize="35dp"
+        android:id="@+id/contacttext"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        android:text="jabsdjfba "
+        android:layout_marginBottom="30dp"
+        android:textSize="35dp"
+        android:id="@+id/contact2"
+        android:layout_below="@+id/contacttext"
+        />
+</RelativeLayout>
+</RelativeLayout>

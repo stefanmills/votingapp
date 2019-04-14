@@ -52,7 +52,7 @@
         android:background="@color/white"
         android:drawableLeft="@drawable/friends"
         android:text="Share with a friend"
-android:layout_below="@+id/sethelp"
+        android:layout_below="@+id/sethelp"
         android:textAllCaps="false"
         android:padding="5dp"
         />
