@@ -14,15 +14,6 @@
         android:textSize="35dp"
         android:id="@+id/contacttext"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAlignment="center"
-        android:text="jabsdjfba "
-        android:layout_marginBottom="30dp"
-        android:textSize="35dp"
-        android:id="@+id/contact2"
-        android:layout_below="@+id/contacttext"
-        />
+
 </RelativeLayout>
 </RelativeLayout>

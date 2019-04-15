@@ -1,60 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.v7.widget.CardView
         android:id="@+id/namebut"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:layout_marginTop="15dp"
-        android:background="@color/white"
-        android:drawableLeft="@drawable/candidate1"
-        android:text="Stefan Mills
-  Computer Science"
-        android:textAllCaps="false"
+        android:layout_margin="8dp"
         android:padding="5dp"
-        />
-    <Button
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+
+                android:src="@drawable/candidate1"
+
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"/>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stefan Mills"
+                    android:textStyle="bold"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Computer Science"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
         android:id="@+id/accounts"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/white"
-        android:drawableLeft="@drawable/accounts"
-        android:text="Accounts
-        Change number, change email"
-        android:textAllCaps="false"
+        android:layout_margin="8dp"
         android:padding="5dp"
-        android:layout_below="@+id/namebut"
-        />
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
 
-    <Button
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+
+                android:src="@drawable/accounts"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"/>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Accounts"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change Number , Change email"
+                    />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
         android:id="@+id/sethelp"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/white"
-        android:drawableLeft="@drawable/ic_help"
-        android:layout_below="@+id/accounts"
-        android:text="Help
-  FAQ,contact us, app info"
-        android:textAllCaps="false"
+        android:layout_margin="8dp"
         android:padding="5dp"
-        />
-    <Button
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+
+                android:src="@drawable/ic_help"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"/>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Help "
+                    android:textSize="15dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FAQ, Contact Us, App Info"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
         android:id="@+id/invite"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/white"
-        android:drawableLeft="@drawable/friends"
-        android:text="Share with a friend"
-        android:layout_below="@+id/sethelp"
-        android:textAllCaps="false"
+        android:layout_margin="8dp"
         android:padding="5dp"
-        />
-</RelativeLayout>
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+
+                android:src="@drawable/friends"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"/>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Share with a friend"
+                    android:textStyle="bold"/>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>
+
+
+
+
+
+    <!--<Button-->
+        <!--android:id="@+id/invite"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="90dp"-->
+        <!--android:layout_marginTop="1dp"-->
+        <!--android:background="@color/white"-->
+        <!--android:drawableLeft="@drawable/friends"-->
+        <!--android:text="Share with a friend"-->
+        <!--android:layout_below="@+id/sethelp"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:padding="5dp"-->
+        <!--/>-->
+<!--</RelativeLayout>-->
+<!--</LinearLayout>-->

@@ -26,7 +26,9 @@ public class ViewResultPage extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
        actionBar.setTitle("View Results");
-            //}
+
+
+       //}
        // });
 
         //ActionBar actionBar= getSupportActionBar(); //this is for "back"

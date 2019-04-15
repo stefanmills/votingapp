@@ -78,6 +78,8 @@
 
         </activity>
 <activity android:name=".AppInfo"></activity>
+        <activity android:name=".ContactUs"
+            android:parentActivityName=".Help"></activity>
 
 
 

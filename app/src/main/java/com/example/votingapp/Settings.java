@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.Button;
 
 
 public class Settings extends AppCompatActivity {
-    private Button buttonsetpro;
-    private Button buttonsethelp;
-    private Button buttonsetacc;
-    private Button buttonsetshare;
+    private CardView buttonsetpro;
+    private CardView buttonsethelp;
+    private CardView buttonsetacc;
+    private CardView buttonsetshare;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,11 @@ public class Settings extends AppCompatActivity {
         buttonsetshare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent share= new Intent(getApplicationContext(), Share.class);
+                Intent share= new Intent(Intent.ACTION_SEND );
+                share.setType("text/plain");
+                String shareBodyText = "Check out this app. Help you vote in your comfort zone";
+                share.putExtra(android.content.Intent.EXTRA_SUBJECT,"Share with friends");
+                share.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
                 startActivity(share);
             }
         });

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Password = textInputPassword.getText().toString();
 
         if (TextUtils.isEmpty(Username)) {
-            Toast.makeText(this, "Please input your username", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please input your reference number", Toast.LENGTH_LONG).show();
 
         } else if (TextUtils.isEmpty(Password)) {
             Toast.makeText(this, "Please input your password", Toast.LENGTH_LONG).show();

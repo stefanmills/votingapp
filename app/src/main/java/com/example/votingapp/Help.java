@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.Button;
 
 public class Help extends AppCompatActivity {
 
-    private Button buttonFAQ;
-    private Button buttonContact;
-    private Button buttonTerms;
-    private Button buttonInfo;
+    private CardView buttonFAQ;
+    private CardView buttonContact;
+    private CardView buttonTerms;
+    private CardView buttonInfo;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class Help extends AppCompatActivity {
         actionBar.setTitle("Help");
 
         buttonInfo = findViewById(R.id.appinfo);
+        buttonContact= findViewById(R.id.contact);
 
         buttonInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +35,14 @@ public class Help extends AppCompatActivity {
             }
         });
 
+        buttonContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent contact= new Intent(getApplicationContext(), ContactUs.class);
+                startActivity(contact);
+            }
+        });
 
 
 
