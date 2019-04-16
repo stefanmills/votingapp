@@ -27,6 +27,7 @@ public class SelectedVotes extends AppCompatActivity {
 
         //for the textview
         president= findViewById(R.id.txtPresident);
+
         secretary=findViewById(R.id.txtSecretary);
         financial=findViewById(R.id.txtFinancial);
         womens= findViewById(R.id.txtWomen);
@@ -59,10 +60,10 @@ public class SelectedVotes extends AppCompatActivity {
         String selectedSecretary = getIntent().getStringExtra(AppConstants.selectedSecretaryString);
 
 
-        president.setText(selectedPresident);
-        secretary.setText(selectedSecretary);
-        financial.setText(selectedFinancial);
-        womens.setText(selectedWocom);
+        president.setText(String.format("President: %s", selectedPresident));
+        secretary.setText(String.format("Secretary: %s",selectedSecretary));
+        financial.setText(String.format("Financial Secretary: %s",selectedFinancial));;
+        womens.setText(String.format("Women's Comm.: %s",selectedWocom));;
 
        // Toast.makeText(this, String.format("{%s} {%s} {%s} {%s}", selectedPresident, selectedSecretary, selectedFinancial, selectedWocom), Toast.LENGTH_LONG).show();
 

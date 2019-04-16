@@ -1,42 +1,52 @@
 package com.example.votingapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SecretaryPage extends AppCompatActivity {
     private FloatingActionButton buttonSecretary;
-    private Button secet1;
-    private Button secet2;
+    private TextView secet1;
+    private TextView secet2;
     private String selectedSecetary;
+    private CardView sec1;
+    private CardView sec2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.secretarypage); // this shows you where you wonna direct it to
         buttonSecretary= findViewById(R.id.btSecretary);
-        secet1 = findViewById(R.id.sece1);
-        secet2= findViewById(R.id.sece2);
+        secet1 = findViewById(R.id.athina);
+        secet2= findViewById(R.id.vera);
+        sec1 = findViewById(R.id.sec1);
+        sec2 = findViewById(R.id.sec2);
 
 
-        secet1.setOnClickListener(new View.OnClickListener() {
+        sec1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 secet1.setEnabled(false);
                 secet2.setEnabled(true);
+                sec2.setCardBackgroundColor(Color.WHITE);
+                sec1.setCardBackgroundColor(Color.rgb(255, 253, 208));
                 selectedSecetary = secet1.getText().toString();
             }
         });
 
-        secet2.setOnClickListener(new View.OnClickListener() {
+        sec2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 secet2.setEnabled(false);
                 secet1.setEnabled(true);
+                sec1.setCardBackgroundColor(Color.WHITE);
+                sec2.setCardBackgroundColor(Color.rgb(255, 253, 208));
                 selectedSecetary = secet2.getText().toString();
             }
         });

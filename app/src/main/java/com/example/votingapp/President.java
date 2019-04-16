@@ -1,19 +1,24 @@
 package com.example.votingapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class President extends AppCompatActivity {
     private FloatingActionButton buttonPresident;
-    private Button pres1;
-    private Button pres2;
+    private TextView pres1;
+    private TextView pres2;
     private String selectedPresident;
+    private CardView  president1;
+    private CardView  president2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,24 +26,30 @@ public class President extends AppCompatActivity {
         setContentView(R.layout.president); // this shows you where you wonna direct it to
         buttonPresident= findViewById(R.id.btPresident);
 
-      pres1 = findViewById(R.id.candidate1);
-      pres2= findViewById(R.id.candidate2);
+      pres1 = findViewById(R.id.tintin);
+      pres2= findViewById(R.id.bucky);
+      president1=findViewById(R.id.candidate1);
+      president2=findViewById(R.id.candidate2);
 
 
-      pres1.setOnClickListener(new View.OnClickListener() {
+      president1.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
               pres1.setEnabled(false);
               pres2.setEnabled(true);
+              president2.setCardBackgroundColor(Color.WHITE);
+              president1.setCardBackgroundColor(Color.rgb(255, 253, 208));
               selectedPresident = pres1.getText().toString();
           }
       });
 
-        pres2.setOnClickListener(new View.OnClickListener() {
+        president2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pres2.setEnabled(false);
                 pres1.setEnabled(true);
+                president1.setCardBackgroundColor(Color.WHITE);
+                president2.setCardBackgroundColor(Color.rgb(255, 253, 208));
                 selectedPresident = pres2.getText().toString();
             }
         });
