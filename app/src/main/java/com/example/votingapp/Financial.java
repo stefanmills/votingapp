@@ -65,7 +65,7 @@ public class Financial extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
                 } else {
 
-                    Intent women = new Intent(getApplicationContext(), WomensCommissioner.class);
+                    Intent women = new Intent(getApplicationContext(), Organizer.class);
                     women.putExtra(AppConstants.selectedFinancialString, selectedFinancial);
                     women.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
                     women.putExtra(AppConstants.selectedPresidentString, selectedPresident);

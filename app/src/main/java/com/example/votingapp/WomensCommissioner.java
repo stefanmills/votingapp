@@ -57,8 +57,9 @@ public class WomensCommissioner extends AppCompatActivity {
         final String selectedPresident = getIntent().getStringExtra(AppConstants.selectedPresidentString);
         final String selectedSecetary = getIntent().getStringExtra(AppConstants.selectedSecretaryString);
         final String selectedFinancial = getIntent().getStringExtra(AppConstants.selectedFinancialString);
+        final String selectedOrganizer = getIntent().getStringExtra(AppConstants.selectedOrganaString);
 
-        Toast.makeText(this, String.format("{%s} {%s} {%s}", selectedPresident, selectedSecetary, selectedFinancial), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, String.format("{%s} {%s} {%s} {%s}", selectedPresident, selectedSecetary, selectedFinancial, selectedOrganizer), Toast.LENGTH_SHORT).show();
 
         buttonWomen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +73,7 @@ public class WomensCommissioner extends AppCompatActivity {
                     women.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
                     women.putExtra(AppConstants.selectedPresidentString, selectedPresident);
                     women.putExtra(AppConstants.selectedWocomString, selectedWomen);
+                    women.putExtra(AppConstants.selectedOrganaString, selectedOrganizer);
 
                     startActivity(women);
                 }

@@ -51,7 +51,7 @@
         </activity>
         <activity
             android:name=".WomensCommissioner"
-            android:parentActivityName=".Financial">
+            android:parentActivityName=".Organizer">
         </activity>
         <activity android:name=".SelectedVotes">
 
@@ -80,7 +80,8 @@
 <activity android:name=".AppInfo"></activity>
         <activity android:name=".ContactUs"
             android:parentActivityName=".Help"></activity>
-
+<activity android:name=".Organizer"
+    android:parentActivityName=".Financial"></activity>
 
 
 

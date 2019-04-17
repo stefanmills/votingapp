@@ -1,167 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="5dp">
-    <android.support.v7.widget.CardView
-        android:id="@+id/prescard"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="8dp"
-        android:padding="5dp"
-        android:clickable="false"
-        android:focusable="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-        <LinearLayout
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical"
-            android:layout_below="@id/tintinpic"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp">
+
+        <RelativeLayout
+            android:id="@+id/choice_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
- <TextView
-     android:layout_marginTop="30dp"
-     android:layout_marginRight="30dp"
-     android:layout_marginLeft="30dp"
-     android:textAlignment="center"
-     android:layout_width="match_parent"
-     android:layout_height="100dp"
-     android:textSize="20sp"
-     android:text="President"
-     android:id="@+id/txtPresident"
-     />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/prescard"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="8dp"
+                android:clickable="false"
+                android:focusable="true"
+                android:padding="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tintinpic"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtPresident"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:text="President"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/seccard"
-        android:layout_below="@+id/prescard"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="8dp"
-        android:padding="5dp"
-        android:clickable="false"
-        android:focusable="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-    <LinearLayout
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_below="@id/txtPresident"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="Secretary"
-        android:textSize="20sp"
-        android:layout_below="@+id/prescard"
-        android:id="@+id/txtSecretary"
-        />
-    </LinearLayout>
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-        android:id="@+id/fincard"
-        android:layout_below="@+id/seccard"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="8dp"
-        android:padding="5dp"
-        android:clickable="false"
-        android:focusable="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-    <LinearLayout
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_below="@id/tintinpic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="Financial"
-        android:textSize="20sp"
-        android:layout_below="@+id/seccard"
-        android:id="@+id/txtFinancial"
-        />
-    </LinearLayout>
-    </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/seccard"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_below="@+id/prescard"
+                android:layout_margin="8dp"
+                android:clickable="false"
+                android:focusable="true"
+                android:padding="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/womancard"
-        android:layout_below="@id/fincard"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="8dp"
-        android:padding="5dp"
-        android:clickable="false"
-        android:focusable="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-    <LinearLayout
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_below="@id/tintinpic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-      >
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="Women's Commissioner"
-        android:textSize="20sp"
-        android:layout_below="@+id/fincard"
-        android:id="@+id/txtWomen"
-        />
-    </LinearLayout>
-    </android.support.v7.widget.CardView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtPresident"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txtSecretary"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/prescard"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:text="Secretary"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/fincard"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_below="@+id/seccard"
+                android:layout_margin="8dp"
+                android:clickable="false"
+                android:focusable="true"
+                android:padding="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tintinpic"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtFinancial"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/seccard"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:text="Financial"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/organacard"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_below="@id/fincard"
+                android:layout_margin="8dp"
+                android:clickable="false"
+                android:focusable="true"
+                android:padding="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tintinpic"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtOrgana"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/fincard"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:text="Organizer:"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/womancard"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_below="@id/organacard"
+                android:layout_margin="8dp"
+                android:clickable="false"
+                android:focusable="true"
+                android:padding="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tintinpic"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtWomen"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/fincard"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:text="Women's Commissioner"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_below="@id/womancard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btEdit"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:gravity="center_horizontal"
-            android:text="edit vote" />
+                <Button
+                    android:id="@+id/btEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="edit vote" />
 
-        <Button
-            android:id="@+id/btConfirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:text="Confirm Vote" />
-    </LinearLayout>
+                <Button
+                    android:id="@+id/btConfirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Confirm Vote" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

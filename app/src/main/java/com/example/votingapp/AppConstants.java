@@ -6,4 +6,5 @@ public class AppConstants {
     public static String selectedSecretaryString = "SELECTED_SECETARY";
     public static String selectedWocomString = "SELECTED_WOCOM";
     public static String selectedFinancialString = "SELECTED_FINANCIAL";
+    public static String selectedOrganaString ="SELECTED_ORGANA";
 }
