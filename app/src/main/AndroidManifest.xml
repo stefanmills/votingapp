@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.votingapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
 
         android:allowBackup="true"
@@ -82,7 +84,8 @@
             android:parentActivityName=".Help"></activity>
 <activity android:name=".Organizer"
     android:parentActivityName=".Financial"></activity>
-
+<activity android:name=".UniqueID"
+    android:parentActivityName=".VotePage"></activity>
 
 
 

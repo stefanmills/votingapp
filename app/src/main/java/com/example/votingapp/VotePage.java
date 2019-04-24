@@ -130,8 +130,8 @@ finish();
         buttonVote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent president = new Intent(getApplicationContext(), President.class);
-                startActivity(president);
+                Intent unique = new Intent(getApplicationContext(), UniqueID.class);
+                startActivity(unique);
             }
         });
         buttonResults.setOnClickListener(new View.OnClickListener() {
