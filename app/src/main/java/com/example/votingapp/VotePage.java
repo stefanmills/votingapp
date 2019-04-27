@@ -12,10 +12,17 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
 
 public class VotePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -23,6 +30,12 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
     private Button buttonResults;
     private DrawerLayout drawer;
     private NavigationView drawerNavigation;
+    private PrefsManager prefsManager;
+    private View headerView;
+    private TextView usernameText;
+    private final String TAG = this.getClass().getSimpleName();
+    String username, password, referenceNumber, Password;
+
 
 
     @Override
@@ -67,8 +80,10 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        prefsManager.clearStorage();
                         Intent login= new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(login);
+
 finish();
                     }
                 });
@@ -106,6 +121,19 @@ finish();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.votepage);
 
+        prefsManager = new PrefsManager(this);
+
+
+
+        referenceNumber = prefsManager.getReferenceNumber();
+        Password=prefsManager.getPassword();
+        Log.d(TAG, " reference is : " + referenceNumber);
+
+
+
+        final String link = "http://10.0.2.2/SMSVoting/androidDisplayName.php";
+
+
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
 
@@ -119,6 +147,12 @@ finish();
          navigationView.setNavigationItemSelectedListener(this);
 
 
+         headerView = navigationView.getHeaderView(0);
+         usernameText = headerView.findViewById(R.id.Username);
+
+
+
+//         usernameText.setText();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.draweropen, R.string.drawerclose);
         drawer.addDrawerListener(toggle);
@@ -144,6 +178,31 @@ finish();
         });
 
 
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                AndroidNetworking.post(link)
+                        .addBodyParameter("username", referenceNumber)
+                        .addBodyParameter("password", Password)
+                        .setTag(TAG)
+                        .setPriority(Priority.IMMEDIATE)
+                        .build()
+                        .getAsString(new StringRequestListener() {
+                            @Override
+                            public void onResponse(String response) {
+                                Log.d(TAG, "Response is: " + response);
+                                usernameText.setText(response);
+
+                                prefsManager.setUsername(response);
+                            }
+
+                            @Override
+                            public void onError(ANError anError) {
+
+                            }
+                        });
+            }
+        });
 
        /* @Override
         public void onBackPressed() {

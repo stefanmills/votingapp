@@ -24,8 +24,8 @@ public class Financial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.financialpage); // this shows you where you wonna direct it to
         buttonFinancial= findViewById(R.id.btFinancial);
-        finan1 = findViewById(R.id.fin1text);
-        finan2= findViewById(R.id.fin2text);
+        finan1 = findViewById(R.id.C1);
+        finan2= findViewById(R.id.C2);
         financial1= findViewById(R.id.fin1);
         financial2= findViewById(R.id.fin2);
 

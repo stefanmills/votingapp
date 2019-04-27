@@ -7,4 +7,6 @@ public class AppConstants {
     public static String selectedWocomString = "SELECTED_WOCOM";
     public static String selectedFinancialString = "SELECTED_FINANCIAL";
     public static String selectedOrganaString ="SELECTED_ORGANA";
+    public static String ReferenceString ="REFERENCE_NUMBER";
+
 }

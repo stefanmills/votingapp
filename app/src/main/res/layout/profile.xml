@@ -59,16 +59,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Name:"
+                            android:textStyle="bold"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Mills Stefan Ameyaw"/>
+                            android:id="@+id/profilename"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gender: Male"/>
+
 
                     </LinearLayout>
                 </RelativeLayout>

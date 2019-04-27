@@ -27,8 +27,8 @@ public class Organizer extends AppInfo {
 setContentView(R.layout.organizer);
 
         buttonOrganizer= findViewById(R.id.btOrganizer);
-        org1text = findViewById(R.id.org1);
-        org2text= findViewById(R.id.org2);
+        org1text = findViewById(R.id.D1);
+        org2text= findViewById(R.id.D2);
         organa1=findViewById(R.id.org1card);
         organa2=findViewById(R.id.org2card);
 

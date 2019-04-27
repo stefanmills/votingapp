@@ -25,8 +25,8 @@ public class WomensCommissioner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.womenscommissioner); // this shows you where you wonna direct it to
         buttonWomen= findViewById(R.id.btWomen);
-        wocom1 = findViewById(R.id.wcom1);
-        wocom2= findViewById(R.id.wcom2);
+        wocom1 = findViewById(R.id.E1);
+        wocom2= findViewById(R.id.E2);
         woman1card=findViewById(R.id.wc1);
         woman2card=findViewById(R.id.wc2);
 

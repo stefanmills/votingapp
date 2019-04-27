@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content">
                 <TextView
 
-                    android:id="@+id/wcom1"
+                    android:id="@+id/E1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="AMA ATTA"
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="THELMA WARDEN"
-                    android:id="@+id/wcom2"
+                    android:id="@+id/E2"
                     android:textStyle="bold"/>
 
 

@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content">
                 <TextView
 
-                    android:id="@+id/fin1text"
+                    android:id="@+id/C1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="STEFAN MILLS"
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KOFI DENIS"
-                    android:id="@+id/fin2text"
+                    android:id="@+id/C2"
                     android:textStyle="bold"/>
 
 
@@ -89,36 +89,7 @@
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
-    <!--<RelativeLayout-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:weightSum="10">-->
-        <!--<Button-->
-            <!--android:background="@drawable/cards"-->
-            <!--android:id="@+id/financial1"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:elevation="10dp"-->
-            <!--android:drawableLeft="@drawable/candidate1"-->
-            <!--android:padding="30dp"-->
-            <!--android:text="MONEY1"-->
-            <!--android:textStyle="bold"-->
-            <!--/>-->
 
-        <!--<Button-->
-            <!--android:background="@drawable/cards"-->
-            <!--android:id="@+id/financial2"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:elevation="10dp"-->
-            <!--android:drawableLeft="@drawable/caandidate2"-->
-            <!--android:padding="30dp"-->
-            <!--android:text="MONEY2"-->
-            <!--android:textStyle="bold"-->
-            <!--android:layout_below="@id/financial1"-->
-            <!--/>-->
-    <!--</RelativeLayout>-->
 
 
 

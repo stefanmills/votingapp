@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.TextView;
 
 
 public class Settings extends AppCompatActivity {
@@ -14,15 +15,24 @@ public class Settings extends AppCompatActivity {
     private CardView buttonsethelp;
     private CardView buttonsetacc;
     private CardView buttonsetshare;
+    private PrefsManager prefsManager;
+    private TextView usernameText;
+    String Displayname;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        prefsManager = new PrefsManager(this);
 
         setContentView(R.layout.settings);
         buttonsetpro = findViewById(R.id.namebut);
         buttonsetshare = findViewById(R.id.invite);
         buttonsetacc = findViewById(R.id.accounts);
         buttonsethelp = findViewById(R.id.sethelp);
+        usernameText= findViewById(R.id.displayname);
+
+        Displayname= prefsManager.getUsername();
+        usernameText.setText(Displayname);
 
         buttonsetpro.setOnClickListener(new View.OnClickListener() {
             @Override

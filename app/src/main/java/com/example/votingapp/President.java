@@ -26,8 +26,8 @@ public class President extends AppCompatActivity {
         setContentView(R.layout.president); // this shows you where you wonna direct it to
         buttonPresident= findViewById(R.id.btPresident);
 
-      pres1 = findViewById(R.id.tintin);
-      pres2= findViewById(R.id.bucky);
+      pres1 = findViewById(R.id.A1);
+      pres2= findViewById(R.id.A2);
       president1=findViewById(R.id.candidate1);
       president2=findViewById(R.id.candidate2);
 

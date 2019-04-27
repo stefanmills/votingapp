@@ -23,8 +23,8 @@ public class SecretaryPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.secretarypage); // this shows you where you wonna direct it to
         buttonSecretary= findViewById(R.id.btSecretary);
-        secet1 = findViewById(R.id.athina);
-        secet2= findViewById(R.id.vera);
+        secet1 = findViewById(R.id.B1);
+        secet2= findViewById(R.id.B2);
         sec1 = findViewById(R.id.sec1);
         sec2 = findViewById(R.id.sec2);
 
