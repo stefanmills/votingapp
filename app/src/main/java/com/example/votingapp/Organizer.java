@@ -1,24 +1,44 @@
 package com.example.votingapp;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
-import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.example.votingapp.Adapter.CandidateAdapter;
+import com.example.votingapp.Model.CandidateDisplay;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class Organizer extends AppInfo {
 
+    private RecyclerView recyclerView;
+    private LinearLayoutManager linearLayoutManager;
+    private CandidateAdapter candidateAdapter;
+
+
+    private ArrayList<CandidateDisplay> candidateDisplays = new ArrayList<>();
+
     private FloatingActionButton buttonOrganizer;
-    private TextView org1text;
-    private TextView org2text;
-    private String selectedOrganizer;
-    private CardView organa1;
-    private CardView  organa2;
+
+    public static String selectedOrganizer;
+
+
+
 
 
     @Override
@@ -27,35 +47,17 @@ public class Organizer extends AppInfo {
 setContentView(R.layout.organizer);
 
         buttonOrganizer= findViewById(R.id.btOrganizer);
-        org1text = findViewById(R.id.D1);
-        org2text= findViewById(R.id.D2);
-        organa1=findViewById(R.id.org1card);
-        organa2=findViewById(R.id.org2card);
+
+        recyclerView = findViewById(R.id.organizerList);
+
+        if (candidateDisplays.size() == 0) {
+            candidateDisplays = getCandidates();
+            initAdapters();
+
+        }
 
 
 
-
-        organa1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                org1text.setEnabled(false);
-                org2text.setEnabled(true);
-                organa2.setCardBackgroundColor(Color.WHITE);
-                organa1.setCardBackgroundColor(Color.rgb(255, 253, 208));
-                selectedOrganizer = org1text.getText().toString();
-            }
-        });
-
-        organa2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                org2text.setEnabled(false);
-                org1text.setEnabled(true);
-                organa1.setCardBackgroundColor(Color.WHITE);
-                organa2.setCardBackgroundColor(Color.rgb(255, 253, 208));
-                selectedOrganizer = org2text.getText().toString();
-            }
-        });
 
 
         final String selectedPresident = getIntent().getStringExtra(AppConstants.selectedPresidentString);
@@ -66,24 +68,78 @@ setContentView(R.layout.organizer);
 
         Toast.makeText(this, String.format("{%s} {%s} {%s}", selectedPresident, selectedSecetary, selectedFinancial), Toast.LENGTH_SHORT).show();
 
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Organizer");
+    }
+
+    public void initAdapters () {
+        candidateAdapter = new CandidateAdapter(this, getCandidates());
+        linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
+        recyclerView.setAdapter(candidateAdapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        initListeners();
+    }
+
+    public ArrayList<CandidateDisplay> getCandidates () {
+        final ArrayList<CandidateDisplay> candidates = new ArrayList<>();
+
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                AndroidNetworking.get("http://10.0.2.2/SMSVoting/androidOrgNameApi.php")
+                        .setPriority(Priority.IMMEDIATE)
+                        .setTag(this.getClass().getSimpleName())
+                        .build()
+                        .getAsJSONArray(new JSONArrayRequestListener() {
+                            @Override
+                            public void onResponse(JSONArray response) {
+//                                Log.d("test", response.toString());
+                                for (int i = 0; i < response.length(); i++) {
+                                    try {
+                                        JSONObject candidate = response.getJSONObject(i);
+                                        CandidateDisplay newCandidate = ResponseUtils.getCandidateFromJSONObject(candidate);
+                                        candidates.add(newCandidate);
+                                    } catch (JSONException e) {
+                                        Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onError(ANError anError) {
+                                Log.d(President.class.getSimpleName(), "error: " + anError.getErrorBody());
+                            }
+                        });
+            }
+        });
+
+        return candidates;
+    }
+    public void setSelectedOrganizer(String name){
+        selectedOrganizer = name;
+        Log.d("test", selectedOrganizer);
+    }
+    public  void initListeners(){
         buttonOrganizer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (selectedOrganizer==null || selectedOrganizer.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
-                } else {
+              } else {
 
                     Intent organa = new Intent(getApplicationContext(), WomensCommissioner.class);
-                    organa.putExtra(AppConstants.selectedFinancialString, selectedFinancial);
-                    organa.putExtra(AppConstants.selectedSecretaryString, selectedSecetary);
-                    organa.putExtra(AppConstants.selectedPresidentString, selectedPresident);
-                    organa.putExtra(AppConstants.selectedOrganaString, selectedOrganizer);
+                    organa.putExtra(AppConstants.selectedFinancialString, Financial.selectedFinancial);
+                    organa.putExtra(AppConstants.selectedSecretaryString, SecretaryPage.selectedSecetary);
+                    organa.putExtra(AppConstants.selectedPresidentString, President.selectedPresident);
+                    organa.putExtra(AppConstants.selectedOrganaString, Organizer.selectedOrganizer);
 
                     startActivity(organa);
                 }
             }
         });
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Organizer");
+
     }
 }

@@ -21,7 +21,7 @@ public class PrefsManager {
     private final String PASSWORD = "PASSWORD";
     private final String UNIQUE_ID = "UNIQUE_ID";
     private final String USERNAME = "USERNAME";
-
+    private final String SELECTED_PRESIDENT = "selected_president";
 
 
 
@@ -49,6 +49,14 @@ public class PrefsManager {
     public void setUniqueID(String UniqueID) {
         editor.putString(UNIQUE_ID, UniqueID);
         editor.apply();
+    }
+
+    public void  setSelectedPresident(String name) {
+        editor.putString(SELECTED_PRESIDENT, name).apply();
+    }
+
+    public String getSelectedPresident() {
+        return preferences.getString(SELECTED_PRESIDENT, null);
     }
 
     public String getUniqueID() {

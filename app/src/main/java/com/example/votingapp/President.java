@@ -1,92 +1,139 @@
 package com.example.votingapp;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class President extends AppCompatActivity {
-    private FloatingActionButton buttonPresident;
-    private TextView pres1;
-    private TextView pres2;
-    private String selectedPresident;
-    private CardView  president1;
-    private CardView  president2;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.example.votingapp.Adapter.CandidateAdapter;
+import com.example.votingapp.Model.CandidateDisplay;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+public class President extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private LinearLayoutManager linearLayoutManager;
+    private CandidateAdapter candidateAdapter;
+
+    private FloatingActionButton buttonPresident;
+    public static String selectedPresident = "";
+    private ArrayList<CandidateDisplay> candidateDisplays = new ArrayList<>();
+    private PrefsManager prefsManager;
+    private String temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.president); // this shows you where you wonna direct it to
+
+        prefsManager = new PrefsManager(this);
+
         buttonPresident= findViewById(R.id.btPresident);
 
-      pres1 = findViewById(R.id.A1);
-      pres2= findViewById(R.id.A2);
-      president1=findViewById(R.id.candidate1);
-      president2=findViewById(R.id.candidate2);
+        recyclerView = findViewById(R.id.presidentList);
+
+        if(candidateDisplays.size() == 0) {
+            getCandidates();
+        }
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("President");
+
+    }
 
 
-      president1.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              pres1.setEnabled(false);
-              pres2.setEnabled(true);
-              president2.setCardBackgroundColor(Color.WHITE);
-              president1.setCardBackgroundColor(Color.rgb(255, 253, 208));
-              selectedPresident = pres1.getText().toString();
-          }
-      });
+    public void initAdapters() {
+        candidateAdapter = new CandidateAdapter(this, candidateDisplays);
+        linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
-        president2.setOnClickListener(new View.OnClickListener() {
+        recyclerView.setAdapter(candidateAdapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+//        initListeners();
+    }
+
+
+    public void getCandidates() {
+
+        runOnUiThread(new Runnable() {
             @Override
-            public void onClick(View v) {
-                pres2.setEnabled(false);
-                pres1.setEnabled(true);
-                president1.setCardBackgroundColor(Color.WHITE);
-                president2.setCardBackgroundColor(Color.rgb(255, 253, 208));
-                selectedPresident = pres2.getText().toString();
+            public void run() {
+                AndroidNetworking.get("http://10.0.2.2/SMSVoting/androidPrezNameApi.php")
+                        .setPriority(Priority.IMMEDIATE)
+                        .setTag(this.getClass().getSimpleName())
+                        .build()
+                        .getAsJSONArray(new JSONArrayRequestListener() {
+                            @Override
+                            public void onResponse(JSONArray response) {
+//                                Log.d("test", response.toString());
+                                for (int i = 0; i < response.length(); i++) {
+                                    try {
+                                        JSONObject candidate = response.getJSONObject(i);
+                                        CandidateDisplay newCandidate = ResponseUtils.getCandidateFromJSONObject(candidate);
+                                        candidateDisplays.add(newCandidate);
+                                    } catch (JSONException e) {
+                                        Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                                initAdapters();
+                                initListeners();
+                            }
+
+                            @Override
+                            public void onError(ANError anError) {
+                                Log.d(President.class.getSimpleName(), "error: "+anError.getErrorBody());
+                            }
+                        });
             }
         });
 
+    }
 
-        /**
-         * once you save the data into the shared preferences, you read the value when you load the next page
-         * if you go back to the previous page, check if the selected value stored in the preferences is null or not
-         * if it is not null, then you display it.
-         *
-         * if(!(prefs.getSelectedPresident() == null)) {
-         *     pres1.setEnabled(false);
-         *     pres2.setEnabled(true);
-         *
-         *     selectedPresidentText.setText(prefs.getSelectedPresident());
-         * }
-         */
+    public void setSelectedPresident(String name){
+//        prefsManager = new PrefsManager(this);
+        Log.d("test", selectedPresident);
+        selectedPresident = name;
+//        getUserData(selectedPresident);
+//        prefsManager.setSelectedPresident(name);
+    }
 
-
-
+    public void initListeners(){
         buttonPresident.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectedPresident == null || selectedPresident.isEmpty()) {
+
+                Log.d("test10",selectedPresident);
+
+                if(selectedPresident == null|| selectedPresident.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
+                     Log.d("test100", selectedPresident);
+//
                 }else {
                     Intent secretary= new Intent(getApplicationContext(), SecretaryPage.class);
                     secretary.putExtra(AppConstants.selectedPresidentString, selectedPresident);
-//                secretary.getStringExtra()
                     startActivity(secretary);
                 }
             }
         });
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("President");
-
-
-
     }
+
+//    private void getUserData(String data) {
+//        temp = data;
+//    }
 }

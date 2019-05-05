@@ -2,10 +2,11 @@ package com.example.votingapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import cn.iwgang.countdownview.CountdownView;
 
 public class ViewResultPage extends AppCompatActivity {
     private Button buttonOk;
@@ -14,6 +15,9 @@ public class ViewResultPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewresultpage); // this shows you where you wonna direct it to
         buttonOk= findViewById(R.id.btOK);
+
+        CountdownView countDownTimer= (CountdownView) findViewById(R.id.countdownview);
+        countDownTimer.start(86400);
 
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,8 +28,8 @@ public class ViewResultPage extends AppCompatActivity {
             }
         });
 
-        ActionBar actionBar = getSupportActionBar();
-       actionBar.setTitle("View Results");
+       // ActionBar actionBar = getSupportActionBar();
+       setTitle("View Results");
 
 
        //}

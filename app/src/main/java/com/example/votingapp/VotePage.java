@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
@@ -34,8 +35,9 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
     private View headerView;
     private TextView usernameText;
     private final String TAG = this.getClass().getSimpleName();
-    String username, password, referenceNumber, Password;
-
+    String  referenceNumber, Password;
+    private CardView VoteCard;
+    private  CardView ResultsCard;
 
 
     @Override
@@ -137,8 +139,8 @@ finish();
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
 
-        buttonVote = (Button) findViewById(R.id.btVote);
-        buttonResults = (Button) findViewById(R.id.btResults);
+        VoteCard =  findViewById(R.id.btVote);
+        ResultsCard =findViewById(R.id.btResults);
         drawer = findViewById(R.id.Drawer);
         drawerNavigation = findViewById(R.id.nav_view);
 
@@ -161,14 +163,14 @@ finish();
 
 
 
-        buttonVote.setOnClickListener(new View.OnClickListener() {
+        VoteCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent unique = new Intent(getApplicationContext(), UniqueID.class);
                 startActivity(unique);
             }
         });
-        buttonResults.setOnClickListener(new View.OnClickListener() {
+        ResultsCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -204,14 +206,7 @@ finish();
             }
         });
 
-       /* @Override
-        public void onBackPressed() {
-if(drawer.isDrawerOpen(GravityCompat.START)){
 
-    drawer.closeDrawer(GravityCompat.START);
-} else {
-            super.onBackPressed();
-        } }*/
 
 
         ActionBar actionBar = getSupportActionBar();

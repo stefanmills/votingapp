@@ -8,90 +8,12 @@
     android:paddingTop="10dp"
     android:elevation="10dp"
     >
-    <android.support.v7.widget.CardView
-        android:id="@+id/fin1"
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/financialList"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="8dp"
-        android:padding="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:src="@drawable/candidate1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:id="@+id/fin1pic"/>
-            <LinearLayout
-                android:gravity="center"
-                android:layout_centerHorizontal="true"
-                android:orientation="vertical"
-                android:layout_below="@id/fin1pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-
-                    android:id="@+id/C1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="STEFAN MILLS"
-                    android:textStyle="bold"/>
-
-
-            </LinearLayout>
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-        android:id="@+id/fin2"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="8dp"
-        android:padding="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        android:layout_below="@+id/fin1">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-
-                android:src="@drawable/caandidate2"
-                android:id="@+id/fin2pic"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"/>
-            <LinearLayout
-                android:gravity="center"
-                android:layout_centerHorizontal="true"
-                android:orientation="vertical"
-                android:layout_below="@+id/fin2pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="KOFI DENIS"
-                    android:id="@+id/C2"
-                    android:textStyle="bold"/>
-
-
-            </LinearLayout>
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-
-
+        android:layout_height="wrap_content" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

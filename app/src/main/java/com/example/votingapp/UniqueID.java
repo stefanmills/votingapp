@@ -73,7 +73,7 @@ public class UniqueID extends AppCompatActivity {
                                         Intent submit = new Intent(getApplicationContext(), President.class);
                                         startActivity(submit);
 
-                                        prefsManager.setReferenceNumber(UniqueID);
+                                        prefsManager.setUniqueID(UniqueID);
                                     }
                                     else {
                                         Log.d("wrong details", "wrong details");

@@ -8,88 +8,12 @@
     android:paddingTop="10dp"
     android:elevation="10dp"
     >
-    <android.support.v7.widget.CardView
-        android:id="@+id/wc1"
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/wocomList"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="8dp"
-        android:padding="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:src="@drawable/candidate1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:id="@+id/wc1pic"/>
-            <LinearLayout
-                android:gravity="center"
-                android:layout_centerHorizontal="true"
-                android:orientation="vertical"
-                android:layout_below="@id/wc1pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-
-                    android:id="@+id/E1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="AMA ATTA"
-                    android:textStyle="bold"/>
-
-
-            </LinearLayout>
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-        android:id="@+id/wc2"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="8dp"
-        android:padding="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        android:layout_below="@+id/wc1">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-
-                android:src="@drawable/caandidate2"
-                android:id="@+id/wc2pic"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"/>
-            <LinearLayout
-                android:gravity="center"
-                android:layout_centerHorizontal="true"
-                android:orientation="vertical"
-                android:layout_below="@+id/wc2pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="THELMA WARDEN"
-                    android:id="@+id/E2"
-                    android:textStyle="bold"/>
-
-
-            </LinearLayout>
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
+        android:layout_height="wrap_content" />
 
 
 

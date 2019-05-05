@@ -29,7 +29,7 @@ public Button button2;
 
         super(itemView);
         button1= (Button) itemView.findViewById(R.id.candidate1);
-        button2= (Button) itemView.findViewById(R.id.candidate2);
+//        button2= (Button) itemView.findViewById(R.id.candidate2);
         itemView.setOnClickListener(this);
     }
 

@@ -17,6 +17,8 @@ public class SelectedVotes extends AppCompatActivity {
     private TextView financial;
     private TextView womens;
     private TextView organa;
+    private PrefsManager prefsManager;
+    private String referenceNumber,Password,UniqueID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,13 @@ public class SelectedVotes extends AppCompatActivity {
         financial=findViewById(R.id.txtFinancial);
         organa=findViewById(R.id.txtOrgana);
         womens= findViewById(R.id.txtWomen);
+
+        //for prefManager
+        prefsManager=new PrefsManager(this);
+        referenceNumber = prefsManager.getReferenceNumber();
+        Password=prefsManager.getPassword();
+        UniqueID= prefsManager.getUniqueID();
+
 
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +74,6 @@ public class SelectedVotes extends AppCompatActivity {
         organa.setText(String.format("Organizer: %s",selectedOrgana));
         womens.setText(String.format("Women's Comm.: %s",selectedWocom));
 
-       // Toast.makeText(this, String.format("{%s} {%s} {%s} {%s}", selectedPresident, selectedSecretary, selectedFinancial, selectedWocom), Toast.LENGTH_LONG).show();
 
 
 

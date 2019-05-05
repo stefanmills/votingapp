@@ -7,13 +7,17 @@
     android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="CONTACT US "
         android:layout_marginTop="120dp"
         android:textSize="35dp"
         android:id="@+id/contacttext"
         />
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text=""
+    android:layout_below="@+id/contacttext"/>
 </RelativeLayout>
 </RelativeLayout>
