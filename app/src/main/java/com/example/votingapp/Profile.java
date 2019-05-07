@@ -1,5 +1,7 @@
 package com.example.votingapp;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -30,6 +32,7 @@ public class Profile extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Profile");
+        actionBar.setBackgroundDrawable( new ColorDrawable(Color.parseColor("#4682B4")));
 
     }
 }

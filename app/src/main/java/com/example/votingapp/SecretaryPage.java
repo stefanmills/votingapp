@@ -1,8 +1,11 @@
 package com.example.votingapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,7 +35,7 @@ public class SecretaryPage extends AppCompatActivity {
     private FloatingActionButton buttonSecretary;
 
     public static String selectedSecetary;
-
+ActionBar actionBar;
     private ArrayList<CandidateDisplay> candidateDisplays = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +56,10 @@ public class SecretaryPage extends AppCompatActivity {
 
         Toast.makeText(this, String.format("{%s}", selectedPresident), Toast.LENGTH_LONG).show();
 
-//        ActionBar actionBar = getSupportActionBar();
+   ActionBar actionBar = getSupportActionBar();
         setTitle("Secretary");
+        actionBar.setBackgroundDrawable( new ColorDrawable(Color.parseColor("#4682B4")));
+
     }
 
         public void initAdapters () {

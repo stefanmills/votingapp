@@ -1,6 +1,8 @@
 package com.example.votingapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -79,6 +81,7 @@ public class SelectedVotes extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Selected Votes");
+        actionBar.setBackgroundDrawable( new ColorDrawable(Color.parseColor("#4682B4")));
 
 
 

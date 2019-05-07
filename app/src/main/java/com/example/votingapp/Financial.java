@@ -1,6 +1,8 @@
 package com.example.votingapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
@@ -60,7 +62,7 @@ public class Financial extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Financial Secretary");
-
+        actionBar.setBackgroundDrawable( new ColorDrawable(Color.parseColor("#4682B4")));
     }
 
     public void initAdapters () {

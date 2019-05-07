@@ -3,6 +3,8 @@ package com.example.votingapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -38,6 +40,7 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
     String  referenceNumber, Password;
     private CardView VoteCard;
     private  CardView ResultsCard;
+    ActionBar actionBar;
 
 
     @Override
@@ -210,6 +213,7 @@ finish();
 
 
         ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable( new ColorDrawable(Color.parseColor("#4682B4")));
         actionBar.setTitle("Home");
 
 

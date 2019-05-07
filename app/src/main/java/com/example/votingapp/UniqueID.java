@@ -1,8 +1,11 @@
 package com.example.votingapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -43,6 +46,10 @@ public class UniqueID extends AppCompatActivity {
 
 
         });
+
+        ActionBar actionBar= getSupportActionBar();
+        actionBar.setTitle("Unique ID");
+        actionBar.setBackgroundDrawable( new ColorDrawable(Color.parseColor("#4682B4")));
     }
 
     public void unique() {

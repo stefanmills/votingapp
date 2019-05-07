@@ -25,7 +25,8 @@
         app:backgroundTint="@android:color/white"
         android:src="@drawable/ic_navigate_next_black_24dp"
         android:id="@+id/btFinancial"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        />
 
 
 

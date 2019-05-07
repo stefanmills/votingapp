@@ -17,7 +17,7 @@ public class ViewResultPage extends AppCompatActivity {
         buttonOk= findViewById(R.id.btOK);
 
         CountdownView countDownTimer= (CountdownView) findViewById(R.id.countdownview);
-        countDownTimer.start(86400);
+        countDownTimer.start(32400000);
 
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +28,7 @@ public class ViewResultPage extends AppCompatActivity {
             }
         });
 
-       // ActionBar actionBar = getSupportActionBar();
+
        setTitle("View Results");
 
 

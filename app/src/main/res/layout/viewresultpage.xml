@@ -27,7 +27,7 @@
         app:suffixHour="H"
         app:suffixMinute="M"
         app:suffixSecond="s"
-        app:suffixMillisecond="ss"
+        app:suffixMillisecond="ms"
         app:timeBgDivisionLineSize="1dp"
         app:timeBgRadius="3dp"
         app:timeBgSize="50dp"

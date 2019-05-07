@@ -34,7 +34,8 @@ public class PrefsManager {
         editor.apply();
     }
 
-    public String getReferenceNumber() {
+    public String getReferenceNumber()
+    {
         return preferences.getString(REFERENCE_NUMBER, null);
     }
 
@@ -55,7 +56,7 @@ public class PrefsManager {
         editor.putString(SELECTED_PRESIDENT, name).apply();
     }
 
-    public String getSelectedPresident() {
+    public String getSelectedSecetary() {
         return preferences.getString(SELECTED_PRESIDENT, null);
     }
 
