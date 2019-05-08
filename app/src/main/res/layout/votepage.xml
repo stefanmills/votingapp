@@ -29,64 +29,56 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginRight="120dp"
+            android:textAlignment="center"
+            android:text="WELCOME"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:id="@+id/welcome"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
+            android:textAlignment="center"
+           android:layout_below="@+id/welcome"
+            android:textSize="18sp"
+            android:textStyle="bold"
+
+            android:id="@+id/Votedisplay"/>
 
 
-    <GridLayout
-
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="2"
-        android:layout_margin="50dp">
-
-        <android.support.v7.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
-            app:cardElevation="5dp"
+        <Button
             android:id="@+id/btVote"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardPreventCornerOverlap="false">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="Click to Vote"/>
-            </LinearLayout>
+            android:layout_below="@+id/Votedisplay"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
+            android:text="Click to Vote"
+            android:background="@drawable/selectedbut"/>
 
-        </android.support.v7.widget.CardView>
-
-
-        <android.support.v7.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
-            app:cardElevation="5dp"
+        <Button
             android:id="@+id/btResults"
-            android:clickable="true"
-            android:focusable="true"
-            >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="View Result"/>
-            </LinearLayout>
+            android:layout_marginRight="120dp"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="120dp"
+            android:layout_below="@+id/btVote"
+            android:layout_marginTop="50dp"
+            android:text="View Results"
+            android:background="@drawable/selectedbut"/>
 
-        </android.support.v7.widget.CardView>
-    </GridLayout>
+
 
 
     </RelativeLayout>

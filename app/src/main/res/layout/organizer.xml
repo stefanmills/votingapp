@@ -23,7 +23,7 @@
         android:layout_marginRight="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        app:backgroundTint="@android:color/white"
+        app:backgroundTint="@color/steelblue"
         android:src="@drawable/ic_navigate_next_black_24dp"
         android:id="@+id/btOrganizer"
         android:layout_alignParentRight="true"

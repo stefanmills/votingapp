@@ -38,6 +38,7 @@ public class WomensCommissioner extends AppCompatActivity {
     private TextView wocom1;
     private TextView wocom2;
     public static String selectedWomen;
+    public static String selectedWomenID = "";
 
 
     @Override
@@ -111,8 +112,9 @@ public class WomensCommissioner extends AppCompatActivity {
 
         return candidates;
     }
-    public void setSelectedWomen(String name){
+    public void setSelectedWomen(String name, String id){
         selectedWomen = name;
+        selectedWomenID=id;
         Log.d("test", selectedWomen);
     }
     public  void initListeners(){

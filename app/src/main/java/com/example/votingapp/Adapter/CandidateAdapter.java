@@ -51,17 +51,17 @@ int index=-1;
                 //Toast.makeText(context, "You have selected: "+candidate.getCandidateName(), Toast.LENGTH_SHORT).show();
                 if(context instanceof President) {
                     Log.d("adapterTest", candidate.getCandidateName());
-                    new President().setSelectedPresident(candidate.getCandidateName());
+                    new President().setSelectedPresident(candidate.getCandidateName(), candidate.getID());
                 }else if (context instanceof SecretaryPage){
-                    new SecretaryPage().setSelectedSecretary(candidate.getCandidateName());
+                    new SecretaryPage().setSelectedSecretary(candidate.getCandidateName(), candidate.getID());
                 }
                 else if (context instanceof Financial ){
-                    new Financial().setSelectedFinancial(candidate.getCandidateName());
+                    new Financial().setSelectedFinancial(candidate.getCandidateName(), candidate.getID());
                 }else if (context instanceof Organizer){
-                    new Organizer().setSelectedOrganizer(candidate.getCandidateName());
+                    new Organizer().setSelectedOrganizer(candidate.getCandidateName(), candidate.getID());
                 }
                 else if (context instanceof WomensCommissioner){
-                    new WomensCommissioner().setSelectedWomen(candidate.getCandidateName());
+                    new WomensCommissioner().setSelectedWomen(candidate.getCandidateName(),candidate.getID());
 
                 }
                 notifyDataSetChanged();

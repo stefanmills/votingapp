@@ -38,6 +38,7 @@ public class Organizer extends AppInfo {
     private FloatingActionButton buttonOrganizer;
 
     public static String selectedOrganizer;
+    public static String selectedOrganizerID = "";
 
 
 
@@ -121,8 +122,9 @@ setContentView(R.layout.organizer);
 
         return candidates;
     }
-    public void setSelectedOrganizer(String name){
+    public void setSelectedOrganizer(String name,  String id){
         selectedOrganizer = name;
+        selectedOrganizerID=id;
         Log.d("test", selectedOrganizer);
     }
     public  void initListeners(){

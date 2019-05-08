@@ -32,6 +32,7 @@ public class Financial extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private CandidateAdapter candidateAdapter;
     public static String selectedFinancial;
+    public static String selectedFinancialID = "";
 
 
 
@@ -110,8 +111,9 @@ public class Financial extends AppCompatActivity {
 
         return candidates;
     }
-    public void setSelectedFinancial(String name){
+    public void setSelectedFinancial(String name, String id){
         selectedFinancial = name;
+        selectedFinancialID= id;
         Log.d("test", selectedFinancial);
     }
     public  void initListeners(){

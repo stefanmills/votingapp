@@ -35,11 +35,12 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
     private NavigationView drawerNavigation;
     private PrefsManager prefsManager;
     private View headerView;
-    private TextView usernameText;
+    private TextView usernameText,votedisplayname;
     private final String TAG = this.getClass().getSimpleName();
     String  referenceNumber, Password;
     private CardView VoteCard;
     private  CardView ResultsCard;
+    private String Displayname;
     ActionBar actionBar;
 
 
@@ -127,7 +128,10 @@ finish();
         setContentView(R.layout.votepage);
 
         prefsManager = new PrefsManager(this);
+        votedisplayname= findViewById(R.id.Votedisplay);
 
+        Displayname= prefsManager.getUsername();
+        votedisplayname.setText(Displayname);
 
 
         referenceNumber = prefsManager.getReferenceNumber();
@@ -142,8 +146,8 @@ finish();
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
 
-        VoteCard =  findViewById(R.id.btVote);
-        ResultsCard =findViewById(R.id.btResults);
+        buttonVote =  findViewById(R.id.btVote);
+        buttonResults =findViewById(R.id.btResults);
         drawer = findViewById(R.id.Drawer);
         drawerNavigation = findViewById(R.id.nav_view);
 
@@ -166,14 +170,14 @@ finish();
 
 
 
-        VoteCard.setOnClickListener(new View.OnClickListener() {
+        buttonVote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent unique = new Intent(getApplicationContext(), UniqueID.class);
                 startActivity(unique);
             }
         });
-        ResultsCard.setOnClickListener(new View.OnClickListener() {
+        buttonResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

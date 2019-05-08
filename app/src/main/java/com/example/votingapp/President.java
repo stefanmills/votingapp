@@ -34,6 +34,7 @@ public class President extends AppCompatActivity {
 
     private FloatingActionButton buttonPresident;
     public static String selectedPresident = "";
+    public static String selectedPresidentID = "";
     private ArrayList<CandidateDisplay> candidateDisplays = new ArrayList<>();
     private PrefsManager prefsManager;
     private String temp;
@@ -108,12 +109,10 @@ public class President extends AppCompatActivity {
 
     }
 
-    public void setSelectedPresident(String name){
-//        prefsManager = new PrefsManager(this);
+    public void setSelectedPresident(String name, String id){
         Log.d("test", selectedPresident);
         selectedPresident = name;
-//        getUserData(selectedPresident);
-//        prefsManager.setSelectedPresident(name);
+        selectedPresidentID = id;
     }
 
     public void initListeners(){
@@ -136,7 +135,4 @@ public class President extends AppCompatActivity {
         });
     }
 
-//    private void getUserData(String data) {
-//        temp = data;
-//    }
 }

@@ -33,6 +33,7 @@ public class SecretaryPage extends AppCompatActivity {
     private CandidateAdapter candidateAdapter;
 
     private FloatingActionButton buttonSecretary;
+    public static String selectedSecetaryID = "";
 
     public static String selectedSecetary;
 ActionBar actionBar;
@@ -109,8 +110,9 @@ ActionBar actionBar;
         }
 
 
-        public void setSelectedSecretary(String name){
+        public void setSelectedSecretary(String name, String id){
             selectedSecetary = name;
+            selectedSecetaryID=id;
             Log.d("test", selectedSecetary);
         }
 
