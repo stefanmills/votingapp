@@ -82,7 +82,7 @@ public class WomensCommissioner extends AppCompatActivity {
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                AndroidNetworking.get("http://10.0.2.2/SMSVoting/androidWocomNameApi.php")
+                AndroidNetworking.get("http://smsvotingpro.ga/androidWocomNameApi.php")
                         .setPriority(Priority.IMMEDIATE)
                         .setTag(this.getClass().getSimpleName())
                         .build()

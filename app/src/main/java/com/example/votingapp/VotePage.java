@@ -26,6 +26,8 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.mahfa.dnswitch.DayNightSwitch;
+import com.mahfa.dnswitch.DayNightSwitchListener;
 
 public class VotePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,6 +44,8 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
     private  CardView ResultsCard;
     private String Displayname;
     ActionBar actionBar;
+    DayNightSwitch dayNightSwitch;
+    View backgroud_view;
 
 
     @Override
@@ -126,6 +130,23 @@ finish();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.votepage);
+        dayNightSwitch= findViewById(R.id.daynight);
+        backgroud_view=findViewById(R.id.backview);
+
+        dayNightSwitch.setDuration(450);
+        dayNightSwitch.setListener(new DayNightSwitchListener() {
+            @Override
+            public void onSwitch(boolean isNight) {
+              if (isNight){
+                  backgroud_view.setAlpha(1f);
+              }
+              else{
+                  backgroud_view.setAlpha(0f);
+              }
+
+
+            }
+        });
 
         prefsManager = new PrefsManager(this);
         votedisplayname= findViewById(R.id.Votedisplay);
@@ -140,7 +161,7 @@ finish();
 
 
 
-        final String link = "http://10.0.2.2/SMSVoting/androidDisplayName.php";
+        final String link = "http://smsvotingpro.ga/androidDisplayName.php";
 
 
         Toolbar toolbar = findViewById(R.id.Toolbar);

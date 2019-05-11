@@ -50,8 +50,25 @@
            android:layout_below="@+id/welcome"
             android:textSize="18sp"
             android:textStyle="bold"
-
             android:id="@+id/Votedisplay"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/backview"
+            android:alpha="0"
+            android:background="@color/midnightblue"
+            />
+
+        <com.mahfa.dnswitch.DayNightSwitch
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:id="@+id/daynight"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="60dp"
+           />
+
 
 
         <Button

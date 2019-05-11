@@ -114,7 +114,7 @@ public class SelectedVotes extends AppCompatActivity {
     }
 
     public void submit() {
-        final String link = "http://10.0.2.2/SMSVoting/androidVote.php";
+        final String link = "http://smsvotingpro.ga/androidVote.php";
 
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Submitting votes");

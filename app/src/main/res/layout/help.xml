@@ -14,7 +14,7 @@
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -99,7 +99,7 @@
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -136,7 +136,7 @@
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.example.votingapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -60,7 +61,11 @@ public class UniqueID extends AppCompatActivity {
             Toast.makeText(this, "Please input your unique number", Toast.LENGTH_LONG).show();
 
         } else {
-            final String link = "http://10.0.2.2/SMSVoting/androidUniqueIDApi.php";
+            final String link = "http://smsvotingpro.ga/androidUniqueIDApi.php";
+            final ProgressDialog dialog = new ProgressDialog(this);
+            dialog.setMessage("Please wait");
+            dialog.setCancelable(false);
+            dialog.show();
 
             runOnUiThread(new Runnable() {
                 @Override
@@ -75,6 +80,7 @@ public class UniqueID extends AppCompatActivity {
                                 @Override
                                 public void onResponse(String response) {
                                     Log.d(TAG, "Response is: " + response);
+                                    dialog.dismiss();
                                     //Toast.makeText(getApplicationContext(), response.trim(), Toast.LENGTH_LONG).show();
                                     if (response.contains("correct")) {
                                         Intent submit = new Intent(getApplicationContext(), President.class);

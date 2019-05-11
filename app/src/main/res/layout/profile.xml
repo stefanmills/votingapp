@@ -37,7 +37,6 @@
                 android:clickable="false"
                 android:focusable="true"
                 app:cardCornerRadius="5dp"
-                app:cardElevation="5dp"
                 android:layout_below="@+id/profilepic">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -82,7 +81,6 @@
                 android:clickable="false"
                 android:focusable="true"
                 app:cardCornerRadius="5dp"
-                app:cardElevation="5dp"
                 android:layout_below="@+id/userdetails">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -134,7 +132,7 @@
                 android:clickable="false"
                 android:focusable="true"
                 app:cardCornerRadius="5dp"
-                app:cardElevation="5dp"
+
                 android:layout_below="@+id/hallyear">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -187,7 +185,6 @@
                 android:clickable="false"
                 android:focusable="true"
                 app:cardCornerRadius="5dp"
-                app:cardElevation="5dp"
                 android:layout_below="@+id/refmail">
                 <RelativeLayout
                     android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.example.votingapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
@@ -63,7 +64,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Please input your password", Toast.LENGTH_LONG).show();
         } else {
 
-            final String link = "http://10.0.2.2/SMSVoting/androidLoginApi.php";
+            final String link = "http://smsvotingpro.ga/androidLoginApi.php";
+            final ProgressDialog dialog = new ProgressDialog(this);
+            dialog.setMessage("Please wait");
+            dialog.setCancelable(false);
+            dialog.show();
 
             runOnUiThread(new Runnable() {
                 @Override
@@ -79,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void onResponse(String response) {
                                     Log.d(TAG, "Response is: " + response);
                                     //Toast.makeText(getApplicationContext(), response.trim(), Toast.LENGTH_LONG).show();
+                                    dialog.dismiss();
                                     if (response.contains("Unique")) {
                                         goToVote();
 

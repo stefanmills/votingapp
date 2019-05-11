@@ -92,7 +92,7 @@ setContentView(R.layout.organizer);
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                AndroidNetworking.get("http://10.0.2.2/SMSVoting/androidOrgNameApi.php")
+                AndroidNetworking.get("http://smsvotingpro.ga/androidOrgNameApi.php")
                         .setPriority(Priority.IMMEDIATE)
                         .setTag(this.getClass().getSimpleName())
                         .build()

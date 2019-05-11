@@ -78,7 +78,7 @@ ActionBar actionBar;
             this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidNetworking.get("http://10.0.2.2/SMSVoting/androidSeceNameApi.php")
+                    AndroidNetworking.get("http://smsvotingpro.ga/androidSeceNameApi.php")
                             .setPriority(Priority.IMMEDIATE)
                             .setTag(this.getClass().getSimpleName())
                             .build()

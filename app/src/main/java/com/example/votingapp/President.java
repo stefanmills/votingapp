@@ -76,7 +76,7 @@ public class President extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                AndroidNetworking.get("http://10.0.2.2/SMSVoting/androidPrezNameApi.php")
+                AndroidNetworking.get("http://smsvotingpro.ga/androidPrezNameApi.php")
                         .setPriority(Priority.IMMEDIATE)
                         .setTag(this.getClass().getSimpleName())
                         .build()
