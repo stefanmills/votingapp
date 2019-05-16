@@ -50,8 +50,8 @@ public class Financial extends AppCompatActivity {
         recyclerView = findViewById(R.id.financialList);
 
         if (candidateDisplays.size() == 0) {
-            candidateDisplays = getCandidates();
-            initAdapters();
+            getCandidates();
+
             }
 
 
@@ -67,7 +67,7 @@ public class Financial extends AppCompatActivity {
     }
 
     public void initAdapters () {
-        candidateAdapter = new CandidateAdapter(this, getCandidates());
+        candidateAdapter = new CandidateAdapter(this, candidateDisplays);
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         recyclerView.setAdapter(candidateAdapter);
@@ -93,12 +93,14 @@ public class Financial extends AppCompatActivity {
                                     try {
                                         JSONObject candidate = response.getJSONObject(i);
                                         CandidateDisplay newCandidate = ResponseUtils.getCandidateFromJSONObject(candidate);
-                                        candidates.add(newCandidate);
+                                        candidateDisplays.add(newCandidate);
                                     } catch (JSONException e) {
                                         Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
                                         e.printStackTrace();
                                     }
                                 }
+                                initAdapters();
+                                initListeners();
                             }
 
                             @Override

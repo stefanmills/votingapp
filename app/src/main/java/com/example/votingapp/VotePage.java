@@ -40,7 +40,7 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
     private TextView usernameText,votedisplayname;
     private final String TAG = this.getClass().getSimpleName();
     String  referenceNumber, Password;
-    private CardView VoteCard;
+    private CardView welcome;
     private  CardView ResultsCard;
     private String Displayname;
     ActionBar actionBar;
@@ -130,6 +130,7 @@ finish();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.votepage);
+        welcome=findViewById(R.id.welcomecard);
         dayNightSwitch= findViewById(R.id.daynight);
         backgroud_view=findViewById(R.id.backview);
 

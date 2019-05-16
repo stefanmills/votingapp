@@ -28,13 +28,12 @@ import java.util.ArrayList;
 
 public class President extends AppCompatActivity {
 
+    public static String selectedPresident = "";
+    public static String selectedPresidentID = "";
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private CandidateAdapter candidateAdapter;
-
     private FloatingActionButton buttonPresident;
-    public static String selectedPresident = "";
-    public static String selectedPresidentID = "";
     private ArrayList<CandidateDisplay> candidateDisplays = new ArrayList<>();
     private PrefsManager prefsManager;
     private String temp;
@@ -46,17 +45,17 @@ public class President extends AppCompatActivity {
 
         prefsManager = new PrefsManager(this);
 
-        buttonPresident= findViewById(R.id.btPresident);
+        buttonPresident = findViewById(R.id.btPresident);
 
         recyclerView = findViewById(R.id.presidentList);
 
-        if(candidateDisplays.size() == 0) {
+        if (candidateDisplays.size() == 0) {
             getCandidates();
         }
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("President");
-        actionBar.setBackgroundDrawable( new ColorDrawable(Color.parseColor("#4682B4")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4682B4")));
 
     }
 
@@ -101,7 +100,7 @@ public class President extends AppCompatActivity {
 
                             @Override
                             public void onError(ANError anError) {
-                                Log.d(President.class.getSimpleName(), "error: "+anError.getErrorBody());
+                                Log.d(President.class.getSimpleName(), "error: " + anError.getErrorBody());
                             }
                         });
             }
@@ -109,25 +108,25 @@ public class President extends AppCompatActivity {
 
     }
 
-    public void setSelectedPresident(String name, String id){
+    public void setSelectedPresident(String name, String id) {
         Log.d("test", selectedPresident);
         selectedPresident = name;
         selectedPresidentID = id;
     }
 
-    public void initListeners(){
+    public void initListeners() {
         buttonPresident.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Log.d("test10",selectedPresident);
+                Log.d("test10", selectedPresident);
 
-                if(selectedPresident == null|| selectedPresident.isEmpty()) {
+                if (selectedPresident == null || selectedPresident.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
-                     Log.d("test100", selectedPresident);
+                    Log.d("test100", selectedPresident);
 //
-                }else {
-                    Intent secretary= new Intent(getApplicationContext(), SecretaryPage.class);
+                } else {
+                    Intent secretary = new Intent(getApplicationContext(), SecretaryPage.class);
                     secretary.putExtra(AppConstants.selectedPresidentString, selectedPresident);
                     startActivity(secretary);
                 }

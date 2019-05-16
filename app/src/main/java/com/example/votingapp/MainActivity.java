@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                                         builder.setSmallIcon(R.drawable.notification);
                                         builder.setContentTitle("Unique ID");
                                         builder.setContentText("Hey there, your" + response);
-                                        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                        builder.setPriority(NotificationCompat.PRIORITY_HIGH);
 
                                         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
                                         notificationManagerCompat.notify(note_id, builder.build());

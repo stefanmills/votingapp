@@ -28,16 +28,15 @@ import java.util.ArrayList;
 
 public class SecretaryPage extends AppCompatActivity {
 
+    public static String selectedSecetaryID = "";
+    public static String selectedSecetary;
+    ActionBar actionBar;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private CandidateAdapter candidateAdapter;
-
     private FloatingActionButton buttonSecretary;
-    public static String selectedSecetaryID = "";
-
-    public static String selectedSecetary;
-ActionBar actionBar;
     private ArrayList<CandidateDisplay> candidateDisplays = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,90 +45,88 @@ ActionBar actionBar;
         recyclerView = findViewById(R.id.secretaryList);
 
         if (candidateDisplays.size() == 0) {
-            candidateDisplays = getCandidates();
-            initAdapters();
-
+            getCandidates();
         }
-
 
 
         final String selectedPresident = getIntent().getStringExtra(AppConstants.selectedPresidentString);
 
         Toast.makeText(this, String.format("{%s}", selectedPresident), Toast.LENGTH_LONG).show();
 
-   ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         setTitle("Secretary");
-        actionBar.setBackgroundDrawable( new ColorDrawable(Color.parseColor("#4682B4")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4682B4")));
 
     }
 
-        public void initAdapters () {
-            candidateAdapter = new CandidateAdapter(this, getCandidates());
-            linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+    public void initAdapters() {
+        candidateAdapter = new CandidateAdapter(this, candidateDisplays);
+        linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
-            recyclerView.setAdapter(candidateAdapter);
-            recyclerView.setLayoutManager(linearLayoutManager);
-            initListeners();
-        }
+        recyclerView.setAdapter(candidateAdapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+    }
 
-        public ArrayList<CandidateDisplay> getCandidates () {
-            final ArrayList<CandidateDisplay> candidates = new ArrayList<>();
+    public void getCandidates() {
 
-            this.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidNetworking.get("http://smsvotingpro.ga/androidSeceNameApi.php")
-                            .setPriority(Priority.IMMEDIATE)
-                            .setTag(this.getClass().getSimpleName())
-                            .build()
-                            .getAsJSONArray(new JSONArrayRequestListener() {
-                                @Override
-                                public void onResponse(JSONArray response) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                AndroidNetworking.get("http://smsvotingpro.ga/androidSeceNameApi.php")
+                        .setPriority(Priority.IMMEDIATE)
+                        .setTag(this.getClass().getSimpleName())
+                        .build()
+                        .getAsJSONArray(new JSONArrayRequestListener() {
+                            @Override
+                            public void onResponse(JSONArray response) {
 //                                Log.d("test", response.toString());
-                                    for (int i = 0; i < response.length(); i++) {
-                                        try {
-                                            JSONObject candidate = response.getJSONObject(i);
-                                            CandidateDisplay newCandidate = ResponseUtils.getCandidateFromJSONObject(candidate);
-                                            candidates.add(newCandidate);
-                                        } catch (JSONException e) {
-                                            Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
-                                            e.printStackTrace();
-                                        }
+                                for (int i = 0; i < response.length(); i++) {
+                                    try {
+                                        JSONObject candidate = response.getJSONObject(i);
+                                        CandidateDisplay newCandidate = ResponseUtils.getCandidateFromJSONObject(candidate);
+                                        candidateDisplays.add(newCandidate);
+                                    } catch (JSONException e) {
+                                        Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
+                                        e.printStackTrace();
                                     }
                                 }
 
-                                @Override
-                                public void onError(ANError anError) {
-                                    Log.d(President.class.getSimpleName(), "error: " + anError.getErrorBody());
-                                }
-                            });
-                }
-            });
-
-            return candidates;
-        }
-
-
-        public void setSelectedSecretary(String name, String id){
-            selectedSecetary = name;
-            selectedSecetaryID=id;
-            Log.d("test", selectedSecetary);
-        }
-
-        public void initListeners(){
-                    buttonSecretary.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (selectedSecetary == null || selectedSecetary.isEmpty()) {
-                                Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
-                            } else {
-                                Intent financial = new Intent(getApplicationContext(), Financial.class);
-                                financial.putExtra(AppConstants.selectedSecretaryString,SecretaryPage.selectedSecetary);
-                                financial.putExtra(AppConstants.selectedPresidentString, President.selectedPresident);
-                                startActivity(financial);
+                                initAdapters();
+                                initListeners();
                             }
 
-                        }
-                    });
-                }
+                            @Override
+                            public void onError(ANError anError) {
+                                Log.d(President.class.getSimpleName(), "error: " + anError.getErrorBody());
+                            }
+                        });
             }
+        });
+
+//        return candidates;
+    }
+
+
+    public void setSelectedSecretary(String name, String id) {
+        selectedSecetary = name;
+        selectedSecetaryID = id;
+        Log.d("test", selectedSecetary);
+    }
+
+    public void initListeners() {
+        buttonSecretary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectedSecetary == null || selectedSecetary.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
+                } else {
+                    Intent financial = new Intent(getApplicationContext(), Financial.class);
+                    financial.putExtra(AppConstants.selectedSecretaryString, SecretaryPage.selectedSecetary);
+                    financial.putExtra(AppConstants.selectedPresidentString, President.selectedPresident);
+                    startActivity(financial);
+                }
+
+            }
+        });
+    }
+}
