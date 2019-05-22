@@ -20,6 +20,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
@@ -46,6 +47,7 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
     ActionBar actionBar;
     DayNightSwitch dayNightSwitch;
     View backgroud_view;
+    ImageView imageView;
 
 
     @Override
@@ -69,7 +71,8 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
                 case  R.id.Share:
                     Intent share= new Intent(Intent.ACTION_SEND );
                     share.setType("text/plain");
-                    String shareBodyText = "Check out this app. Help you vote in your comfort zone";
+                    String shareBodyText = "Check out this app. Help you vote in your comfort zone. You can download or  app" +
+                            "on google playstore  or visit our website via http://smsvotingpro.ga/";
                     share.putExtra(android.content.Intent.EXTRA_SUBJECT,"Share with friends");
                     share.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
 
@@ -133,6 +136,7 @@ finish();
         welcome=findViewById(R.id.welcomecard);
         dayNightSwitch= findViewById(R.id.daynight);
         backgroud_view=findViewById(R.id.backview);
+        imageView=findViewById(R.id.propic);
 
         dayNightSwitch.setDuration(450);
         dayNightSwitch.setListener(new DayNightSwitchListener() {

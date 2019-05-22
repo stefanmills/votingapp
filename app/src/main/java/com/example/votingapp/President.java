@@ -123,7 +123,7 @@ public class President extends AppCompatActivity {
 
                 if (selectedPresident == null || selectedPresident.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please select a candidate", Toast.LENGTH_LONG).show();
-                    Log.d("test100", selectedPresident);
+                 //   Log.d("test100", selectedPresident);
 //
                 } else {
                     Intent secretary = new Intent(getApplicationContext(), SecretaryPage.class);

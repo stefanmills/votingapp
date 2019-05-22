@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 public class PrefsManager {
 
+    private static final String RESULTS ="Results";
     private Context context;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
@@ -71,6 +72,15 @@ public class PrefsManager {
 
     public String getUsername() {
         return preferences.getString(USERNAME, null);
+    }
+
+    public void setResults(String Results) {
+        editor.putString(RESULTS,Results);
+        editor.apply();
+    }
+
+    public String getResults() {
+        return preferences.getString(RESULTS, null);
     }
 
 
