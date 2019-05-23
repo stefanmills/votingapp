@@ -42,6 +42,11 @@ public class UniqueID extends AppCompatActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                President.selectedPresident = "";
+                SecretaryPage.selectedSecetary = "";
+                Financial.selectedFinancial = "";
+                Organizer.selectedOrganizer = "";
+                WomensCommissioner.selectedWomen = "";
                 unique();
             }
 

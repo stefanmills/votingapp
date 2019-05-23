@@ -1,8 +1,10 @@
 package com.example.votingapp;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.NotificationCompat;
@@ -96,15 +98,20 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//                                        NotificationChannel notificationChannel= new NotificationChannel(CHANNEL_ID,importance);
+                                        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+                                        notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                            NotificationChannel notificationChannel= new NotificationChannel(CHANNEL_ID,"notif-channel", NotificationManager.IMPORTANCE_HIGH);
+                                            notificationManager.createNotificationChannel(notificationChannel);
+                                        }
                                         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
                                         builder.setSmallIcon(R.drawable.notification);
                                         builder.setChannelId(CHANNEL_ID);
                                         builder.setContentTitle("Unique ID");
                                         builder.setContentText("Hey there, your" + response);
                                         builder.setPriority(NotificationCompat.PRIORITY_HIGH);
+                                        builder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
 
-                                        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
                                         notificationManagerCompat.notify(note_id, builder.build());
                                     } else {
                                         Log.d("wrong details", "wrong details");
