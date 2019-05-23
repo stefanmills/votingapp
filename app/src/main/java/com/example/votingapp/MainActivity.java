@@ -1,5 +1,6 @@
 package com.example.votingapp;
 
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText textInputPassword;
     private Button buttonLogin;
     private PrefsManager prefsManager;
-
+    private NotificationManager notificationManager;
+    private int importance = NotificationManager.IMPORTANCE_HIGH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +93,13 @@ public class MainActivity extends AppCompatActivity {
                                         prefsManager.setReferenceNumber(Username);
                                         prefsManager.setPassword(Password);
 
+
+
+
+//                                        NotificationChannel notificationChannel= new NotificationChannel(CHANNEL_ID,importance);
                                         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
                                         builder.setSmallIcon(R.drawable.notification);
+                                        builder.setChannelId(CHANNEL_ID);
                                         builder.setContentTitle("Unique ID");
                                         builder.setContentText("Hey there, your" + response);
                                         builder.setPriority(NotificationCompat.PRIORITY_HIGH);

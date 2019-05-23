@@ -70,6 +70,11 @@ public class SelectedVotes extends AppCompatActivity {
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                President.selectedPresident = "";
+                SecretaryPage.selectedSecetary = "";
+                Financial.selectedFinancial = "";
+                Organizer.selectedOrganizer = "";
+                WomensCommissioner.selectedWomen = "";
                 Intent back = new Intent(getApplicationContext(), President.class);
                 startActivity(back);
 
