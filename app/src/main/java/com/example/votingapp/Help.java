@@ -30,7 +30,7 @@ public class Help extends AppCompatActivity {
         buttonInfo = findViewById(R.id.appinfo);
         buttonContact= findViewById(R.id.contact);
         buttonFAQ=findViewById(R.id.faq);
-
+        buttonTerms=findViewById(R.id.terms);
         buttonInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,13 +52,21 @@ public class Help extends AppCompatActivity {
         buttonFAQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "https://smsvotingpro.ga";
+                String url = "https://smsvotingpro.ga/viewFaq.php";
                 Intent faq = new Intent(Intent.ACTION_VIEW);
                 faq.setData(Uri.parse(url));
                 startActivity(faq);
             }
         });
-
+buttonTerms.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        String url = "https://smsvotingpro.ga";
+        Intent terms = new Intent(Intent.ACTION_VIEW);
+        terms.setData(Uri.parse(url));
+        startActivity(terms);
+    }
+});
 
     }
 }

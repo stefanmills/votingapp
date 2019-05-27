@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VotingApp</string>
+    <string name="app_name">VoteLine</string>
     <string name="draweropen"> Open Navigation Drawer</string>
     <string name="drawerclose"> Close Navigation Drawer</string>
 </resources>

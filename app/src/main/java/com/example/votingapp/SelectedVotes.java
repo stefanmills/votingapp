@@ -150,11 +150,12 @@ public class SelectedVotes extends AppCompatActivity {
                                 //Toast.makeText(getApplicationContext(), response.trim(), Toast.LENGTH_LONG).show();
                                 if (response.contains("Congratulations")) {
                                     Toast.makeText(getApplicationContext(), "Vote Submitted", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "You have successfully voted", Toast.LENGTH_LONG).show();
                                     Intent vote = new Intent(getApplicationContext(), VotePage.class);
                                     startActivity(vote);
                                 } else if (response.contains("Sorry")) {
 
-                                    Toast.makeText(getApplicationContext(), "Sorry you have already cast your vote", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Sorry, you have already cast your vote", Toast.LENGTH_LONG).show();
                                     Intent vote = new Intent(getApplicationContext(), VotePage.class);
                                     startActivity(vote);
                                 }

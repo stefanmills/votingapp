@@ -71,8 +71,7 @@ public class VotePage extends AppCompatActivity implements NavigationView.OnNavi
                 case  R.id.Share:
                     Intent share= new Intent(Intent.ACTION_SEND );
                     share.setType("text/plain");
-                    String shareBodyText = "Check out this app. Help you vote in your comfort zone. You can download or  app" +
-                            "on google playstore  or visit our website via http://smsvotingpro.ga/";
+                    String shareBodyText = "Check out this app which help you vote in your comfort zone. You can download or  app on google playstore  or visit our website via http://smsvotingpro.ga/";
                     share.putExtra(android.content.Intent.EXTRA_SUBJECT,"Share with friends");
                     share.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
 
