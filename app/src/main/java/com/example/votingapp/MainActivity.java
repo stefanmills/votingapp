@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                                         builder.setChannelId(CHANNEL_ID);
                                         builder.setContentTitle("Unique ID");
                                         builder.setContentText("Hey there, your" + response);
+                                        prefsManager.setFingerUniqueID(response.split(" ")[3]);
                                         builder.setPriority(NotificationCompat.PRIORITY_HIGH);
                                         builder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
 

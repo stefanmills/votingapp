@@ -5,6 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +17,8 @@
         tools:ignore="GoogleAppIndexingWarning">
 
 
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity"
+            ></activity>
         <activity
             android:name=".Splash"
             android:theme="@style/Theme.AppCompat.NoActionBar">

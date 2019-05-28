@@ -23,7 +23,8 @@ public class PrefsManager {
     private final String UNIQUE_ID = "UNIQUE_ID";
     private final String USERNAME = "USERNAME";
     private final String SELECTED_PRESIDENT = "selected_president";
-
+    private final String FINGER_ID="FINGER_ID";
+    private final String FINGER_SUCCESS = "FINGER_SUCCESS";
 
 
 
@@ -52,6 +53,15 @@ public class PrefsManager {
         editor.putString(UNIQUE_ID, UniqueID);
         editor.apply();
     }
+    public void setFingerUniqueID(String UniqueID) {
+        editor.putString(FINGER_ID, UniqueID);
+        editor.apply();
+    }
+
+    public void setFingerSuccess(boolean fingerSuccess) {
+        editor.putBoolean(FINGER_SUCCESS, fingerSuccess);
+        editor.apply();
+    }
 
     public void  setSelectedPresident(String name) {
         editor.putString(SELECTED_PRESIDENT, name).apply();
@@ -63,6 +73,14 @@ public class PrefsManager {
 
     public String getUniqueID() {
         return preferences.getString(UNIQUE_ID, null);
+    }
+
+    public String getFingerUniqueID() {
+        return preferences.getString(FINGER_ID, null);
+    }
+
+    public boolean getfingerSuccess() {
+        return preferences.getBoolean(FINGER_SUCCESS, false);
     }
 
     public void setUsername(String Username) {

@@ -51,7 +51,23 @@
         android:text="Please input the unique ID sent to continue"
         android:layout_gravity="center"
         android:paddingTop="20dp"
+        android:id="@+id/uniquetxt"
         />
+
+
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/fingerprint"
+        android:id="@+id/fingerimage"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/paraLabel"
+        android:text="Fingerprint Authentication. Please place your thumb here "/>
 
 
 

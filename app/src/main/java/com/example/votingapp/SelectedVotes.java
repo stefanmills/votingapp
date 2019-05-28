@@ -53,6 +53,9 @@ public class SelectedVotes extends AppCompatActivity {
         referenceNumber = prefsManager.getReferenceNumber();
         Password = prefsManager.getPassword();
         UniqueID = prefsManager.getUniqueID();
+        if(prefsManager.getfingerSuccess()){
+            UniqueID = prefsManager.getFingerUniqueID();
+        }
         prezVote = President.selectedPresidentID;
         secVote = SecretaryPage.selectedSecetaryID;
         finSecVote = Financial.selectedFinancialID;
@@ -153,11 +156,13 @@ public class SelectedVotes extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "You have successfully voted", Toast.LENGTH_LONG).show();
                                     Intent vote = new Intent(getApplicationContext(), VotePage.class);
                                     startActivity(vote);
+                                    finish();
                                 } else if (response.contains("Sorry")) {
 
                                     Toast.makeText(getApplicationContext(), "Sorry, you have already cast your vote", Toast.LENGTH_LONG).show();
                                     Intent vote = new Intent(getApplicationContext(), VotePage.class);
                                     startActivity(vote);
+                                    finish();
                                 }
                             }
 
